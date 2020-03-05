@@ -39,10 +39,18 @@ namespace AlexandriaMemorialLibraryASP.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult BookModelView()
+        public IActionResult BookModelView(BookModel passthrough)
         {
-            BookModel passthrough = Library[6];
             return View(passthrough);
+        }
+        public IActionResult LibraryView(List<BookModel> library)
+        {
+            library = this.Library;
+            return View(library);
+        }
+        public IActionResult Details(int id)
+        {
+            return BookModelView();
         }
         private void GenerateLibrary()
         {
