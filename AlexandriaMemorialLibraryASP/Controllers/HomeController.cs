@@ -9,10 +9,12 @@ using AlexandriaMemorialLibraryASP.Models;
 
 namespace AlexandriaMemorialLibraryASP.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private List<BookModel> Library { get; set; }
+        private bool Loop { get; set; }
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
